@@ -24,7 +24,7 @@ export const Hero: React.FC<HeroProps> = ({
   return (
     <section
       onMouseMove={handleMouseMove}
-      className="relative overflow-hidden pt-6 pb-12 sm:pb-16 px-4 sm:px-6 lg:px-8 border-b border-neutral-800"
+      className="relative overflow-hidden pt-6 pb-12 sm:pb-16 px-4 sm:px-6 lg:px-8 border-b border-neutral-200 dark:border-neutral-800 transition-colors"
     >
       {/* Background Interactive Ambient Spotlight */}
       <div
@@ -36,11 +36,11 @@ export const Hero: React.FC<HeroProps> = ({
 
       <div className="max-w-7xl mx-auto">
         {/* Ticker Notice Bar */}
-        <div className="mb-6 overflow-hidden rounded-xl bg-neutral-900/80 border border-neutral-800 py-2 px-4">
-          <div className="flex items-center justify-between text-xs font-mono text-neutral-400">
+        <div className="mb-6 overflow-hidden rounded-xl bg-white dark:bg-neutral-900/80 border border-neutral-200 dark:border-neutral-800 py-2 px-4 shadow-xs">
+          <div className="flex items-center justify-between text-xs font-mono text-neutral-600 dark:text-neutral-400">
             <div className="flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-amber-500 animate-ping" />
-              <span className="text-amber-400 font-bold uppercase tracking-wider">
+              <span className="text-amber-600 dark:text-amber-400 font-bold uppercase tracking-wider">
                 CANLI OUTLET ALANI:
               </span>
               <span className="hidden sm:inline">
@@ -48,9 +48,9 @@ export const Hero: React.FC<HeroProps> = ({
               </span>
             </div>
             <div className="flex items-center gap-3">
-              <span className="text-white font-semibold">%65'e Varan İndirimler</span>
-              <span className="text-neutral-600">|</span>
-              <span className="text-neutral-300 hidden md:inline">Kapıda Ödeme & Değişim Garantisi</span>
+              <span className="text-neutral-900 dark:text-white font-semibold">%65'e Varan İndirimler</span>
+              <span className="text-neutral-300 dark:text-neutral-600">|</span>
+              <span className="text-neutral-600 dark:text-neutral-300 hidden md:inline">Kapıda Ödeme & Değişim Garantisi</span>
             </div>
           </div>
         </div>
@@ -59,22 +59,22 @@ export const Hero: React.FC<HeroProps> = ({
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           {/* Left Column: Headlines & High-Energy CTAs */}
           <div className="lg:col-span-7 space-y-6">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-semibold">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-600 dark:text-amber-400 text-xs font-semibold">
               <Flame className="w-3.5 h-3.5 text-amber-500 animate-bounce" />
               <span>Özel Tasarım Outlet & Kombin Mağazası</span>
             </div>
 
-            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white uppercase leading-[1.08] font-display">
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-neutral-900 dark:text-white uppercase leading-[1.08] font-display">
               SOKAK MODASI VE <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-amber-200 to-amber-500">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 via-amber-400 to-amber-600 dark:from-amber-400 dark:via-amber-200 dark:to-amber-500">
                 LÜKS OUTLETİN
               </span>{' '}
               BULUŞMA NOKTASI.
             </h1>
 
-            <p className="text-base sm:text-lg text-neutral-300 max-w-xl font-normal leading-relaxed">
+            <p className="text-base sm:text-lg text-neutral-600 dark:text-neutral-300 max-w-xl font-normal leading-relaxed">
               Azak ve Riko’nun ikonik sokak parçaları, Şaban Outlet güvencesiyle tek platformda. 
-              Aşağı kaydırarak <strong className="text-white font-semibold">sallanan askılık vitrinindeki</strong> giysileri incele veya kendi kombinini stüdyomuzda oluştur.
+              Aşağı kaydırarak <strong className="text-neutral-900 dark:text-white font-semibold">sallanan askılık vitrinindeki</strong> giysileri incele veya kendi kombinini stüdyomuzda oluştur.
             </p>
 
             {/* CTAs */}
@@ -90,15 +90,15 @@ export const Hero: React.FC<HeroProps> = ({
 
               <button
                 onClick={onOpenCombineStudio}
-                className="flex items-center gap-2 px-5 py-3.5 bg-neutral-900 hover:bg-neutral-800 text-white font-semibold text-sm rounded-xl border border-neutral-700 hover:border-neutral-500 transition-all"
+                className="flex items-center gap-2 px-5 py-3.5 bg-white dark:bg-neutral-900 hover:bg-neutral-100 dark:hover:bg-neutral-800 text-neutral-900 dark:text-white font-semibold text-sm rounded-xl border border-neutral-300 dark:border-neutral-700 hover:border-neutral-400 transition-all shadow-xs"
               >
-                <Layers className="w-4 h-4 text-amber-400" />
+                <Layers className="w-4 h-4 text-amber-500" />
                 <span>Kombin Stüdyosu (-%20)</span>
               </button>
 
               <button
                 onClick={onOpenChat}
-                className="flex items-center gap-2 px-4 py-3.5 text-xs text-neutral-300 hover:text-amber-400 transition-colors"
+                className="flex items-center gap-2 px-4 py-3.5 text-xs text-neutral-600 dark:text-neutral-300 hover:text-amber-500 transition-colors"
               >
                 <span>Yapay Zeka Stiliste Sor</span>
                 <ArrowRight className="w-3.5 h-3.5" />
@@ -106,28 +106,28 @@ export const Hero: React.FC<HeroProps> = ({
             </div>
 
             {/* Micro Highlights */}
-            <div className="grid grid-cols-3 gap-4 pt-4 border-t border-neutral-800/80 max-w-lg">
+            <div className="grid grid-cols-3 gap-4 pt-4 border-t border-neutral-200 dark:border-neutral-800/80 max-w-lg">
               <div>
-                <span className="text-xl sm:text-2xl font-black text-white block tabular-nums">
+                <span className="text-xl sm:text-2xl font-black text-neutral-900 dark:text-white block tabular-nums">
                   %65
                 </span>
-                <span className="text-[11px] text-neutral-400 uppercase tracking-wider block">
+                <span className="text-[11px] text-neutral-500 dark:text-neutral-400 uppercase tracking-wider block">
                   Outlet İndirimi
                 </span>
               </div>
               <div>
-                <span className="text-xl sm:text-2xl font-black text-amber-400 block tabular-nums">
+                <span className="text-xl sm:text-2xl font-black text-amber-500 dark:text-amber-400 block tabular-nums">
                   480 GSM
                 </span>
-                <span className="text-[11px] text-neutral-400 uppercase tracking-wider block">
+                <span className="text-[11px] text-neutral-500 dark:text-neutral-400 uppercase tracking-wider block">
                   Ağır Fransız Kumaş
                 </span>
               </div>
               <div>
-                <span className="text-xl sm:text-2xl font-black text-white block tabular-nums">
+                <span className="text-xl sm:text-2xl font-black text-neutral-900 dark:text-white block tabular-nums">
                   24 Saat
                 </span>
-                <span className="text-[11px] text-neutral-400 uppercase tracking-wider block">
+                <span className="text-[11px] text-neutral-500 dark:text-neutral-400 uppercase tracking-wider block">
                   Hızlı Kargolama
                 </span>
               </div>
@@ -137,7 +137,7 @@ export const Hero: React.FC<HeroProps> = ({
           {/* Right Column: Visual Showroom Collage */}
           <div className="lg:col-span-5 relative">
             <div
-              className="relative rounded-2xl overflow-hidden border border-neutral-800 shadow-2xl bg-neutral-900 transition-transform duration-500 ease-out"
+              className="relative rounded-2xl overflow-hidden border border-neutral-200 dark:border-neutral-800 shadow-2xl bg-white dark:bg-neutral-900 transition-transform duration-500 ease-out"
               style={{
                 transform: `perspective(1000px) rotateY(${mousePos.x * 8}deg) rotateX(${-mousePos.y * 8}deg)`,
               }}
@@ -150,34 +150,34 @@ export const Hero: React.FC<HeroProps> = ({
               />
 
               {/* Gradient Scrim */}
-              <div className="absolute inset-0 bg-gradient-to-t from-neutral-950 via-neutral-950/20 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
 
               {/* Floating Parallax Tag 1 */}
               <div
-                className="absolute top-4 left-4 p-2.5 rounded-xl bg-neutral-900/90 backdrop-blur-md border border-neutral-700/80 shadow-lg flex items-center gap-2.5 transition-transform duration-300"
+                className="absolute top-4 left-4 p-2.5 rounded-xl bg-white/95 dark:bg-neutral-900/90 backdrop-blur-md border border-neutral-200 dark:border-neutral-700/80 shadow-lg flex items-center gap-2.5 transition-transform duration-300"
                 style={{
                   transform: `translate(${mousePos.x * -15}px, ${mousePos.y * -15}px)`,
                 }}
               >
-                <div className="w-2.5 h-2.5 rounded-full bg-emerald-400" />
+                <div className="w-2.5 h-2.5 rounded-full bg-emerald-500" />
                 <div>
-                  <span className="text-xs font-bold text-white block">Mağaza Stokları Güncel</span>
-                  <span className="text-[10px] text-neutral-400">Şaban Outlet Kadıköy Showroom</span>
+                  <span className="text-xs font-bold text-neutral-900 dark:text-white block">Mağaza Stokları Güncel</span>
+                  <span className="text-[10px] text-neutral-500 dark:text-neutral-400">Şaban Outlet Kadıköy Showroom</span>
                 </div>
               </div>
 
               {/* Floating Parallax Tag 2 */}
               <div
-                className="absolute bottom-4 right-4 p-3 rounded-xl bg-neutral-900/90 backdrop-blur-md border border-amber-500/40 shadow-xl max-w-xs transition-transform duration-300"
+                className="absolute bottom-4 right-4 p-3 rounded-xl bg-white/95 dark:bg-neutral-900/90 backdrop-blur-md border border-amber-500/40 shadow-xl max-w-xs transition-transform duration-300"
                 style={{
                   transform: `translate(${mousePos.x * 20}px, ${mousePos.y * 20}px)`,
                 }}
               >
-                <div className="flex items-center gap-2 text-amber-400 mb-1">
+                <div className="flex items-center gap-2 text-amber-600 dark:text-amber-400 mb-1">
                   <ShieldCheck className="w-4 h-4" />
                   <span className="text-xs font-bold uppercase tracking-wider">Orijinal Outlet Güvencesi</span>
                 </div>
-                <p className="text-[11px] text-neutral-300">
+                <p className="text-[11px] text-neutral-600 dark:text-neutral-300">
                   Her ürün dikiş, kumaş ve etiket kontrolünden geçirilerek paketlenir.
                 </p>
               </div>

@@ -112,14 +112,14 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
 
   return (
     <div className="fixed inset-0 bg-black/80 backdrop-blur-md z-50 flex items-center justify-center p-4 overflow-y-auto">
-      <div className="bg-neutral-950 border border-neutral-800 rounded-3xl w-full max-w-2xl overflow-hidden shadow-2xl relative my-8">
+      <div className="bg-white dark:bg-neutral-950 border border-neutral-200 dark:border-neutral-800 rounded-3xl w-full max-w-2xl overflow-hidden shadow-2xl relative my-8">
         {/* Modal Header */}
-        <div className="p-6 border-b border-neutral-800 flex items-center justify-between">
+        <div className="p-6 border-b border-neutral-200 dark:border-neutral-800 flex items-center justify-between">
           <div>
-            <h2 className="text-lg font-bold text-white">
+            <h2 className="text-lg font-bold text-neutral-900 dark:text-white">
               {confirmedOrder ? 'Siparişiniz Alındı!' : 'Siparişi Tamamla'}
             </h2>
-            <p className="text-xs text-neutral-400">
+            <p className="text-xs text-neutral-500 dark:text-neutral-400">
               {confirmedOrder
                 ? 'Şaban Outlet & Riko ekibi siparişinizi hazırlamaya başladı.'
                 : 'Teslimat bilgilerinizi girerek siparişinizi onaylayın.'}
@@ -128,7 +128,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
 
           <button
             onClick={onClose}
-            className="p-1.5 rounded-lg text-neutral-400 hover:text-white hover:bg-neutral-900 border border-neutral-800"
+            className="p-1.5 rounded-lg text-neutral-400 hover:text-neutral-900 dark:hover:text-white hover:bg-neutral-100 dark:hover:bg-neutral-900 border border-neutral-200 dark:border-neutral-800"
             aria-label="Kapat"
           >
             <X className="w-5 h-5" />
@@ -138,41 +138,41 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
         {/* Confirmed Order State */}
         {confirmedOrder ? (
           <div className="p-8 text-center space-y-6">
-            <div className="w-16 h-16 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 mx-auto flex items-center justify-center">
+            <div className="w-16 h-16 rounded-full bg-emerald-500/20 text-emerald-500 border border-emerald-500/40 mx-auto flex items-center justify-center">
               <CheckCircle2 className="w-10 h-10" />
             </div>
 
             <div>
-              <span className="text-xs font-mono px-3 py-1 rounded-full bg-neutral-900 text-amber-400 border border-neutral-800 font-bold">
+              <span className="text-xs font-mono px-3 py-1 rounded-full bg-neutral-100 dark:bg-neutral-900 text-amber-600 dark:text-amber-400 border border-neutral-200 dark:border-neutral-800 font-bold">
                 Sipariş No: {confirmedOrder.id}
               </span>
-              <h3 className="text-xl font-bold text-white mt-3">
+              <h3 className="text-xl font-bold text-neutral-900 dark:text-white mt-3">
                 Teşekkürler, {confirmedOrder.customer.fullName}!
               </h3>
-              <p className="text-xs text-neutral-400 max-w-md mx-auto mt-1">
+              <p className="text-xs text-neutral-600 dark:text-neutral-400 max-w-md mx-auto mt-1">
                 Kargonuz en geç 24 saat içinde hazırlanıp <strong>{confirmedOrder.customer.city}</strong> adresinize gönderilmek üzere yola çıkacaktır.
               </p>
             </div>
 
             {/* Receipt Summary Card */}
-            <div className="p-5 rounded-2xl bg-neutral-900/80 border border-neutral-800 text-left text-xs space-y-3">
-              <div className="flex justify-between font-semibold text-neutral-200 pb-2 border-b border-neutral-800">
+            <div className="p-5 rounded-2xl bg-neutral-50 dark:bg-neutral-900/80 border border-neutral-200 dark:border-neutral-800 text-left text-xs space-y-3">
+              <div className="flex justify-between font-semibold text-neutral-700 dark:text-neutral-200 pb-2 border-b border-neutral-200 dark:border-neutral-800">
                 <span>Teslim Edilecek Adres:</span>
-                <span className="text-neutral-400 truncate max-w-[200px]">
+                <span className="text-neutral-500 dark:text-neutral-400 truncate max-w-[200px]">
                   {confirmedOrder.customer.district}, {confirmedOrder.customer.city}
                 </span>
               </div>
-              <div className="flex justify-between font-semibold text-neutral-200 pb-2 border-b border-neutral-800">
+              <div className="flex justify-between font-semibold text-neutral-700 dark:text-neutral-200 pb-2 border-b border-neutral-200 dark:border-neutral-800">
                 <span>Ödeme Yöntemi:</span>
-                <span className="text-amber-400">
+                <span className="text-amber-600 dark:text-amber-400 font-bold">
                   {confirmedOrder.customer.paymentMethod === 'kapida_odeme'
                     ? 'Kapıda Nakit / Kredi Kartı'
                     : 'Online Kredi Kartı'}
                 </span>
               </div>
               <div className="flex justify-between items-baseline pt-1">
-                <span className="text-sm font-bold text-white">Toplam Tahsil Edilecek Tutar:</span>
-                <span className="text-lg font-black text-amber-400 tabular-nums">
+                <span className="text-sm font-bold text-neutral-900 dark:text-white">Toplam Tahsil Edilecek Tutar:</span>
+                <span className="text-lg font-black text-amber-500 tabular-nums">
                   {formatCurrency(confirmedOrder.total)}
                 </span>
               </div>
@@ -191,7 +191,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
             {/* Form Fields Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label className="text-xs font-semibold text-neutral-300 block mb-1">
+                <label className="text-xs font-semibold text-neutral-700 dark:text-neutral-300 block mb-1">
                   Ad Soyad *
                 </label>
                 <input
@@ -199,17 +199,17 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                   value={formData.fullName}
                   onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
                   placeholder="Ahmet Yılmaz"
-                  className={`w-full bg-neutral-900 border rounded-xl px-3.5 py-2.5 text-xs text-white placeholder-neutral-500 focus:outline-hidden ${
-                    errors.fullName ? 'border-red-500' : 'border-neutral-800 focus:border-amber-500'
+                  className={`w-full bg-neutral-50 dark:bg-neutral-900 border rounded-xl px-3.5 py-2.5 text-xs text-neutral-900 dark:text-white placeholder-neutral-400 focus:outline-hidden ${
+                    errors.fullName ? 'border-red-500' : 'border-neutral-300 dark:border-neutral-800 focus:border-amber-500'
                   }`}
                 />
                 {errors.fullName && (
-                  <span className="text-[11px] text-red-400 block mt-1">{errors.fullName}</span>
+                  <span className="text-[11px] text-red-500 block mt-1">{errors.fullName}</span>
                 )}
               </div>
 
               <div>
-                <label className="text-xs font-semibold text-neutral-300 block mb-1">
+                <label className="text-xs font-semibold text-neutral-700 dark:text-neutral-300 block mb-1">
                   Telefon Numarası *
                 </label>
                 <input
@@ -217,17 +217,17 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                   value={formData.phone}
                   onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                   placeholder="05XX XXX XX XX"
-                  className={`w-full bg-neutral-900 border rounded-xl px-3.5 py-2.5 text-xs text-white placeholder-neutral-500 focus:outline-hidden ${
-                    errors.phone ? 'border-red-500' : 'border-neutral-800 focus:border-amber-500'
+                  className={`w-full bg-neutral-50 dark:bg-neutral-900 border rounded-xl px-3.5 py-2.5 text-xs text-neutral-900 dark:text-white placeholder-neutral-400 focus:outline-hidden ${
+                    errors.phone ? 'border-red-500' : 'border-neutral-300 dark:border-neutral-800 focus:border-amber-500'
                   }`}
                 />
                 {errors.phone && (
-                  <span className="text-[11px] text-red-400 block mt-1">{errors.phone}</span>
+                  <span className="text-[11px] text-red-500 block mt-1">{errors.phone}</span>
                 )}
               </div>
 
               <div>
-                <label className="text-xs font-semibold text-neutral-300 block mb-1">
+                <label className="text-xs font-semibold text-neutral-700 dark:text-neutral-300 block mb-1">
                   Şehir / İl *
                 </label>
                 <input
@@ -235,17 +235,17 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                   value={formData.city}
                   onChange={(e) => setFormData({ ...formData, city: e.target.value })}
                   placeholder="İstanbul, Ankara, İzmir..."
-                  className={`w-full bg-neutral-900 border rounded-xl px-3.5 py-2.5 text-xs text-white placeholder-neutral-500 focus:outline-hidden ${
-                    errors.city ? 'border-red-500' : 'border-neutral-800 focus:border-amber-500'
+                  className={`w-full bg-neutral-50 dark:bg-neutral-900 border rounded-xl px-3.5 py-2.5 text-xs text-neutral-900 dark:text-white placeholder-neutral-400 focus:outline-hidden ${
+                    errors.city ? 'border-red-500' : 'border-neutral-300 dark:border-neutral-800 focus:border-amber-500'
                   }`}
                 />
                 {errors.city && (
-                  <span className="text-[11px] text-red-400 block mt-1">{errors.city}</span>
+                  <span className="text-[11px] text-red-500 block mt-1">{errors.city}</span>
                 )}
               </div>
 
               <div>
-                <label className="text-xs font-semibold text-neutral-300 block mb-1">
+                <label className="text-xs font-semibold text-neutral-700 dark:text-neutral-300 block mb-1">
                   İlçe *
                 </label>
                 <input
@@ -253,17 +253,17 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                   value={formData.district}
                   onChange={(e) => setFormData({ ...formData, district: e.target.value })}
                   placeholder="Kadıköy, Beşiktaş..."
-                  className={`w-full bg-neutral-900 border rounded-xl px-3.5 py-2.5 text-xs text-white placeholder-neutral-500 focus:outline-hidden ${
-                    errors.district ? 'border-red-500' : 'border-neutral-800 focus:border-amber-500'
+                  className={`w-full bg-neutral-50 dark:bg-neutral-900 border rounded-xl px-3.5 py-2.5 text-xs text-neutral-900 dark:text-white placeholder-neutral-400 focus:outline-hidden ${
+                    errors.district ? 'border-red-500' : 'border-neutral-300 dark:border-neutral-800 focus:border-amber-500'
                   }`}
                 />
                 {errors.district && (
-                  <span className="text-[11px] text-red-400 block mt-1">{errors.district}</span>
+                  <span className="text-[11px] text-red-500 block mt-1">{errors.district}</span>
                 )}
               </div>
 
               <div className="sm:col-span-2">
-                <label className="text-xs font-semibold text-neutral-300 block mb-1">
+                <label className="text-xs font-semibold text-neutral-700 dark:text-neutral-300 block mb-1">
                   Açık Teslimat Adresi *
                 </label>
                 <textarea
@@ -271,19 +271,19 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                   value={formData.address}
                   onChange={(e) => setFormData({ ...formData, address: e.target.value })}
                   placeholder="Cadde, sokak, bina ve daire numarası..."
-                  className={`w-full bg-neutral-900 border rounded-xl px-3.5 py-2 text-xs text-white placeholder-neutral-500 focus:outline-hidden ${
-                    errors.address ? 'border-red-500' : 'border-neutral-800 focus:border-amber-500'
+                  className={`w-full bg-neutral-50 dark:bg-neutral-900 border rounded-xl px-3.5 py-2 text-xs text-neutral-900 dark:text-white placeholder-neutral-400 focus:outline-hidden ${
+                    errors.address ? 'border-red-500' : 'border-neutral-300 dark:border-neutral-800 focus:border-amber-500'
                   }`}
                 />
                 {errors.address && (
-                  <span className="text-[11px] text-red-400 block mt-1">{errors.address}</span>
+                  <span className="text-[11px] text-red-500 block mt-1">{errors.address}</span>
                 )}
               </div>
             </div>
 
             {/* Payment Method Selector */}
             <div>
-              <label className="text-xs font-semibold text-neutral-300 block mb-2">
+              <label className="text-xs font-semibold text-neutral-700 dark:text-neutral-300 block mb-2">
                 Ödeme Yöntemi Tercihi
               </label>
 
@@ -293,14 +293,14 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                   onClick={() => setFormData({ ...formData, paymentMethod: 'kapida_odeme' })}
                   className={`p-4 rounded-xl border text-left flex items-start gap-3 transition-all ${
                     formData.paymentMethod === 'kapida_odeme'
-                      ? 'bg-amber-500/10 border-amber-500 text-white'
-                      : 'bg-neutral-900 border-neutral-800 text-neutral-400 hover:border-neutral-700'
+                      ? 'bg-amber-500/10 border-amber-500 text-neutral-900 dark:text-white shadow-xs'
+                      : 'bg-neutral-50 dark:bg-neutral-900 border-neutral-200 dark:border-neutral-800 text-neutral-600 dark:text-neutral-400 hover:border-neutral-400'
                   }`}
                 >
-                  <Banknote className="w-5 h-5 text-amber-400 shrink-0 mt-0.5" />
+                  <Banknote className="w-5 h-5 text-amber-500 shrink-0 mt-0.5" />
                   <div>
-                    <span className="text-xs font-bold block text-white">Kapıda Ödeme</span>
-                    <span className="text-[11px] text-neutral-400">
+                    <span className="text-xs font-bold block text-neutral-900 dark:text-white">Kapıda Ödeme</span>
+                    <span className="text-[11px] text-neutral-500 dark:text-neutral-400">
                       Kargonuz geldiğinde nakit veya pos cihazıyla ödeyin.
                     </span>
                   </div>
@@ -311,14 +311,14 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                   onClick={() => setFormData({ ...formData, paymentMethod: 'kredi_karti' })}
                   className={`p-4 rounded-xl border text-left flex items-start gap-3 transition-all ${
                     formData.paymentMethod === 'kredi_karti'
-                      ? 'bg-amber-500/10 border-amber-500 text-white'
-                      : 'bg-neutral-900 border-neutral-800 text-neutral-400 hover:border-neutral-700'
+                      ? 'bg-amber-500/10 border-amber-500 text-neutral-900 dark:text-white shadow-xs'
+                      : 'bg-neutral-50 dark:bg-neutral-900 border-neutral-200 dark:border-neutral-800 text-neutral-600 dark:text-neutral-400 hover:border-neutral-400'
                   }`}
                 >
-                  <CreditCard className="w-5 h-5 text-amber-400 shrink-0 mt-0.5" />
+                  <CreditCard className="w-5 h-5 text-amber-500 shrink-0 mt-0.5" />
                   <div>
-                    <span className="text-xs font-bold block text-white">Kredi / Banka Kartı</span>
-                    <span className="text-[11px] text-neutral-400">
+                    <span className="text-xs font-bold block text-neutral-900 dark:text-white">Kredi / Banka Kartı</span>
+                    <span className="text-[11px] text-neutral-500 dark:text-neutral-400">
                       3D Secure güvencesiyle anında tek çekim veya taksit.
                     </span>
                   </div>
@@ -327,14 +327,14 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
             </div>
 
             {/* Summary Row */}
-            <div className="p-4 rounded-xl bg-neutral-900 border border-neutral-800 flex items-center justify-between">
+            <div className="p-4 rounded-xl bg-neutral-50 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 flex items-center justify-between">
               <div>
-                <span className="text-xs text-neutral-400 block">Sipariş Tutarı ({totals.itemCount} ürün):</span>
-                <span className="text-xs text-emerald-400">
+                <span className="text-xs text-neutral-500 dark:text-neutral-400 block">Sipariş Tutarı ({totals.itemCount} ürün):</span>
+                <span className="text-xs text-emerald-600 dark:text-emerald-400 font-semibold">
                   {totals.shippingFee === 0 ? 'Ücretsiz Hızlı Kargo' : 'Standart Kargo'}
                 </span>
               </div>
-              <span className="text-2xl font-black text-amber-400 tabular-nums">
+              <span className="text-2xl font-black text-amber-500 tabular-nums">
                 {formatCurrency(totals.total)}
               </span>
             </div>

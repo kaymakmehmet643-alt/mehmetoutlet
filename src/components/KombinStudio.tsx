@@ -88,16 +88,16 @@ export const KombinStudio: React.FC<KombinStudioProps> = ({
   const content = (
     <div className="space-y-8">
       {/* Header Banner */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 p-6 rounded-2xl bg-gradient-to-r from-amber-500/10 via-neutral-900 to-neutral-900 border border-amber-500/30">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 p-6 rounded-2xl bg-gradient-to-r from-amber-500/15 via-white to-white dark:via-neutral-900 dark:to-neutral-900 border border-amber-500/30 shadow-xs">
         <div>
-          <div className="flex items-center gap-2 text-xs font-mono font-bold text-amber-400 uppercase tracking-wider mb-1">
+          <div className="flex items-center gap-2 text-xs font-mono font-bold text-amber-600 dark:text-amber-400 uppercase tracking-wider mb-1">
             <Sparkles className="w-3.5 h-3.5" />
             <span>Azak & Riko Kombin Atölyesi</span>
           </div>
-          <h2 className="text-xl sm:text-2xl font-bold text-white">
+          <h2 className="text-xl sm:text-2xl font-bold text-neutral-900 dark:text-white">
             Kendi Outlet Kombinini Oluştur, Ekstra %20 İndirim Kazan
           </h2>
-          <p className="text-xs sm:text-sm text-neutral-400 mt-1 max-w-xl">
+          <p className="text-xs sm:text-sm text-neutral-600 dark:text-neutral-400 mt-1 max-w-xl">
             Üst, alt ve dış giyim parçalarını seçip eşleştir. 2 parçada %12, 3 ve üzeri parçada net %20 sepet indirimi anında uygulanır.
           </p>
         </div>
@@ -110,7 +110,7 @@ export const KombinStudio: React.FC<KombinStudioProps> = ({
               onUpdateSlot('bottom', undefined);
               onUpdateSlot('shoes', undefined);
             }}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs text-neutral-400 hover:text-white hover:bg-neutral-800 border border-neutral-700 self-start md:self-auto transition-colors"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white hover:bg-neutral-100 dark:hover:bg-neutral-800 border border-neutral-300 dark:border-neutral-700 self-start md:self-auto transition-colors"
           >
             <RefreshCw className="w-3.5 h-3.5" />
             <span>Kombini Sıfırla</span>
@@ -121,8 +121,8 @@ export const KombinStudio: React.FC<KombinStudioProps> = ({
       {/* Signature Pre-Made Looks */}
       <div>
         <div className="flex items-center justify-between mb-4">
-          <h3 className="text-sm font-bold text-neutral-300 uppercase tracking-wider flex items-center gap-2">
-            <Layers className="w-4 h-4 text-amber-400" />
+          <h3 className="text-sm font-bold text-neutral-800 dark:text-neutral-300 uppercase tracking-wider flex items-center gap-2">
+            <Layers className="w-4 h-4 text-amber-500" />
             <span>Hazır Azak & Riko İmza Kombinleri</span>
           </h3>
           <span className="text-xs text-neutral-500">Tek tıkla yükle</span>
@@ -132,28 +132,28 @@ export const KombinStudio: React.FC<KombinStudioProps> = ({
           {SIGNATURE_LOOKS.map(look => (
             <div
               key={look.id}
-              className="p-4 rounded-xl bg-neutral-900 border border-neutral-800 hover:border-amber-500/50 transition-all flex flex-col justify-between group"
+              className="p-4 rounded-xl bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 hover:border-amber-500/50 shadow-xs transition-all flex flex-col justify-between group"
             >
               <div>
                 <div className="flex items-center justify-between mb-2">
-                  <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-amber-500/10 text-amber-400 font-semibold border border-amber-500/20">
+                  <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-amber-500/10 text-amber-600 dark:text-amber-400 font-semibold border border-amber-500/20">
                     Ekstra -%{look.specialDiscountPercent} İndirim
                   </span>
-                  <span className="text-[11px] text-neutral-400 font-medium">
+                  <span className="text-[11px] text-neutral-500 dark:text-neutral-400 font-medium">
                     {look.stylist}
                   </span>
                 </div>
-                <h4 className="text-sm font-bold text-white group-hover:text-amber-400 transition-colors">
+                <h4 className="text-sm font-bold text-neutral-900 dark:text-white group-hover:text-amber-500 dark:group-hover:text-amber-400 transition-colors">
                   {look.title}
                 </h4>
-                <p className="text-xs text-neutral-400 mt-1 line-clamp-2">
+                <p className="text-xs text-neutral-600 dark:text-neutral-400 mt-1 line-clamp-2">
                   {look.description}
                 </p>
 
                 {/* Thumbnails */}
                 <div className="flex gap-2 mt-3">
                   {look.items.map(item => (
-                    <div key={item.id} className="w-12 h-14 rounded-lg overflow-hidden bg-neutral-950 border border-neutral-700">
+                    <div key={item.id} className="w-12 h-14 rounded-lg overflow-hidden bg-neutral-100 dark:bg-neutral-950 border border-neutral-200 dark:border-neutral-700">
                       <img
                         src={item.image}
                         alt={item.name}
@@ -167,7 +167,7 @@ export const KombinStudio: React.FC<KombinStudioProps> = ({
 
               <button
                 onClick={() => handleApplySignatureLook(look)}
-                className="mt-4 w-full py-2 px-3 bg-neutral-800 hover:bg-amber-500 hover:text-neutral-950 text-neutral-200 text-xs font-bold rounded-lg transition-all flex items-center justify-center gap-1.5"
+                className="mt-4 w-full py-2 px-3 bg-neutral-100 dark:bg-neutral-800 hover:bg-amber-500 hover:text-neutral-950 text-neutral-800 dark:text-neutral-200 text-xs font-bold rounded-lg transition-all flex items-center justify-center gap-1.5"
               >
                 <span>Bu Kombini Yükle</span>
                 <ChevronRight className="w-3.5 h-3.5" />
@@ -239,10 +239,10 @@ export const KombinStudio: React.FC<KombinStudioProps> = ({
         </div>
 
         {/* Right: Live Bundle Summary Card */}
-        <div className="lg:col-span-4 p-6 rounded-2xl bg-neutral-900 border border-neutral-800 space-y-5 sticky top-24">
-          <div className="flex items-center justify-between pb-3 border-b border-neutral-800">
-            <h3 className="font-bold text-white text-base">Kombin Özeti</h3>
-            <span className="text-xs font-mono text-neutral-400">
+        <div className="lg:col-span-4 p-6 rounded-2xl bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 shadow-xs space-y-5 sticky top-24">
+          <div className="flex items-center justify-between pb-3 border-b border-neutral-200 dark:border-neutral-800">
+            <h3 className="font-bold text-neutral-900 dark:text-white text-base">Kombin Özeti</h3>
+            <span className="text-xs font-mono text-neutral-500 dark:text-neutral-400">
               {activeItems.length} Parça Seçildi
             </span>
           </div>
@@ -255,38 +255,38 @@ export const KombinStudio: React.FC<KombinStudioProps> = ({
             <div className="space-y-3">
               <div className="space-y-2 text-xs">
                 {activeItems.map(item => (
-                  <div key={item.id} className="flex justify-between items-center text-neutral-300">
+                  <div key={item.id} className="flex justify-between items-center text-neutral-700 dark:text-neutral-300">
                     <span className="truncate pr-2">{item.name}</span>
                     <span className="font-mono tabular-nums shrink-0">{formatCurrency(item.outletPrice)}</span>
                   </div>
                 ))}
               </div>
 
-              <div className="pt-3 border-t border-neutral-800 space-y-2 text-xs">
-                <div className="flex justify-between text-neutral-400">
+              <div className="pt-3 border-t border-neutral-200 dark:border-neutral-800 space-y-2 text-xs">
+                <div className="flex justify-between text-neutral-500 dark:text-neutral-400">
                   <span>Mağaza Normal Fiyatı:</span>
                   <span className="line-through tabular-nums">{formatCurrency(bundleCalculation.originalSum)}</span>
                 </div>
-                <div className="flex justify-between text-neutral-400">
+                <div className="flex justify-between text-neutral-500 dark:text-neutral-400">
                   <span>Outlet Liste Fiyatı:</span>
                   <span className="tabular-nums">{formatCurrency(bundleCalculation.outletSum)}</span>
                 </div>
                 {bundleCalculation.bundleDiscountPercent > 0 && (
-                  <div className="flex justify-between text-amber-400 font-semibold">
+                  <div className="flex justify-between text-amber-600 dark:text-amber-400 font-semibold">
                     <span>Kombin Ekstra İndirimi (%{bundleCalculation.bundleDiscountPercent}):</span>
                     <span className="tabular-nums">-{formatCurrency(bundleCalculation.bundleDiscountAmount)}</span>
                   </div>
                 )}
               </div>
 
-              <div className="pt-3 border-t border-neutral-800 flex justify-between items-baseline">
+              <div className="pt-3 border-t border-neutral-200 dark:border-neutral-800 flex justify-between items-baseline">
                 <div>
-                  <span className="text-xs text-neutral-400 block">Kombin Toplam Fiyatı:</span>
-                  <span className="text-xs text-emerald-400 font-semibold">
+                  <span className="text-xs text-neutral-500 dark:text-neutral-400 block">Kombin Toplam Fiyatı:</span>
+                  <span className="text-xs text-emerald-600 dark:text-emerald-400 font-semibold">
                     Toplam {formatCurrency(bundleCalculation.originalSum - bundleCalculation.bundlePrice)} tasarruf!
                   </span>
                 </div>
-                <span className="text-2xl font-black text-white tabular-nums">
+                <span className="text-2xl font-black text-neutral-900 dark:text-white tabular-nums">
                   {formatCurrency(bundleCalculation.bundlePrice)}
                 </span>
               </div>
@@ -306,17 +306,17 @@ export const KombinStudio: React.FC<KombinStudioProps> = ({
       {/* Product Selection Modal Drawer for a specific slot */}
       {activePickerSlot && (
         <div className="fixed inset-0 bg-black/80 backdrop-blur-xs z-50 flex items-center justify-center p-4">
-          <div className="bg-neutral-900 border border-neutral-700 rounded-2xl w-full max-w-2xl max-h-[85vh] flex flex-col shadow-2xl">
-            <div className="p-4 border-b border-neutral-800 flex items-center justify-between">
+          <div className="bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-700 rounded-2xl w-full max-w-2xl max-h-[85vh] flex flex-col shadow-2xl">
+            <div className="p-4 border-b border-neutral-200 dark:border-neutral-800 flex items-center justify-between">
               <div>
-                <h3 className="font-bold text-white text-base">
+                <h3 className="font-bold text-neutral-900 dark:text-white text-base">
                   Parça Seçimi: {activePickerSlot.toUpperCase()}
                 </h3>
-                <span className="text-xs text-neutral-400">Kombin için bir ürün belirleyin</span>
+                <span className="text-xs text-neutral-500 dark:text-neutral-400">Kombin için bir ürün belirleyin</span>
               </div>
               <button
                 onClick={() => setActivePickerSlot(null)}
-                className="p-1 rounded-lg text-neutral-400 hover:text-white"
+                className="p-1 rounded-lg text-neutral-400 hover:text-neutral-900 dark:hover:text-white"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -330,23 +330,23 @@ export const KombinStudio: React.FC<KombinStudioProps> = ({
                     onUpdateSlot(activePickerSlot, product);
                     setActivePickerSlot(null);
                   }}
-                  className="flex gap-3 p-3 rounded-xl bg-neutral-950 border border-neutral-800 hover:border-amber-500 cursor-pointer transition-all group"
+                  className="flex gap-3 p-3 rounded-xl bg-neutral-50 dark:bg-neutral-950 border border-neutral-200 dark:border-neutral-800 hover:border-amber-500 cursor-pointer transition-all group"
                 >
                   <img
                     src={product.image}
                     alt={product.name}
                     referrerPolicy="no-referrer"
-                    className="w-16 h-20 object-cover rounded-lg bg-neutral-900 shrink-0"
+                    className="w-16 h-20 object-cover rounded-lg bg-neutral-200 dark:bg-neutral-900 shrink-0"
                   />
                   <div className="flex-1 flex flex-col justify-between">
                     <div>
-                      <span className="text-[10px] text-amber-400 font-mono uppercase block">{product.brand}</span>
-                      <h4 className="text-xs font-bold text-white group-hover:text-amber-400 line-clamp-1">{product.name}</h4>
-                      <span className="text-[11px] text-neutral-400">{product.fabric}</span>
+                      <span className="text-[10px] text-amber-600 dark:text-amber-400 font-mono uppercase block">{product.brand}</span>
+                      <h4 className="text-xs font-bold text-neutral-900 dark:text-white group-hover:text-amber-500 dark:group-hover:text-amber-400 line-clamp-1">{product.name}</h4>
+                      <span className="text-[11px] text-neutral-500 dark:text-neutral-400">{product.fabric}</span>
                     </div>
                     <div className="flex items-center justify-between mt-1">
-                      <span className="text-xs font-bold text-white tabular-nums">{formatCurrency(product.outletPrice)}</span>
-                      <span className="text-[10px] px-2 py-0.5 rounded bg-amber-500/10 text-amber-400 font-semibold">Seç</span>
+                      <span className="text-xs font-bold text-neutral-900 dark:text-white tabular-nums">{formatCurrency(product.outletPrice)}</span>
+                      <span className="text-[10px] px-2 py-0.5 rounded bg-amber-500/10 text-amber-600 dark:text-amber-400 font-semibold">Seç</span>
                     </div>
                   </div>
                 </div>
@@ -361,10 +361,10 @@ export const KombinStudio: React.FC<KombinStudioProps> = ({
   if (isOpenModal) {
     return (
       <div className="fixed inset-0 bg-black/85 backdrop-blur-md z-50 flex items-center justify-center p-4 overflow-y-auto">
-        <div className="bg-neutral-950 border border-neutral-800 rounded-3xl w-full max-w-5xl p-6 sm:p-8 my-8 relative shadow-2xl">
+        <div className="bg-white dark:bg-neutral-950 border border-neutral-200 dark:border-neutral-800 rounded-3xl w-full max-w-5xl p-6 sm:p-8 my-8 relative shadow-2xl">
           <button
             onClick={onCloseModal}
-            className="absolute top-6 right-6 p-2 rounded-xl text-neutral-400 hover:text-white hover:bg-neutral-900 border border-neutral-800"
+            className="absolute top-6 right-6 p-2 rounded-xl text-neutral-400 hover:text-neutral-900 dark:hover:text-white hover:bg-neutral-100 dark:hover:bg-neutral-900 border border-neutral-200 dark:border-neutral-800"
             aria-label="Kombin stüdyosunu kapat"
           >
             <X className="w-5 h-5" />
@@ -400,13 +400,13 @@ const SlotCard: React.FC<SlotCardProps> = ({
   onSizeChange,
 }) => {
   return (
-    <div className="p-4 rounded-2xl bg-neutral-900/90 border border-neutral-800 flex flex-col justify-between min-h-[220px]">
+    <div className="p-4 rounded-2xl bg-white dark:bg-neutral-900/90 border border-neutral-200 dark:border-neutral-800 shadow-xs flex flex-col justify-between min-h-[220px]">
       <div className="flex items-center justify-between mb-3">
-        <span className="text-xs font-bold text-neutral-400 uppercase tracking-wider">{title}</span>
+        <span className="text-xs font-bold text-neutral-500 dark:text-neutral-400 uppercase tracking-wider">{title}</span>
         {product && (
           <button
             onClick={onRemove}
-            className="text-neutral-500 hover:text-red-400 p-1 transition-colors"
+            className="text-neutral-400 hover:text-red-500 p-1 transition-colors"
             title="Kombinden kaldır"
           >
             <Trash2 className="w-3.5 h-3.5" />
@@ -416,7 +416,7 @@ const SlotCard: React.FC<SlotCardProps> = ({
 
       {product ? (
         <div className="flex gap-4 items-center">
-          <div className="w-20 h-24 rounded-xl overflow-hidden bg-neutral-950 border border-neutral-700 shrink-0">
+          <div className="w-20 h-24 rounded-xl overflow-hidden bg-neutral-100 dark:bg-neutral-950 border border-neutral-200 dark:border-neutral-700 shrink-0">
             <img
               src={product.image}
               alt={product.name}
@@ -425,23 +425,23 @@ const SlotCard: React.FC<SlotCardProps> = ({
             />
           </div>
           <div className="flex-1">
-            <span className="text-[10px] font-mono text-amber-400 uppercase">{product.brand}</span>
-            <h4 className="text-xs font-bold text-white line-clamp-1">{product.name}</h4>
-            <div className="text-xs font-bold text-white tabular-nums mt-1">
+            <span className="text-[10px] font-mono text-amber-600 dark:text-amber-400 uppercase">{product.brand}</span>
+            <h4 className="text-xs font-bold text-neutral-900 dark:text-white line-clamp-1">{product.name}</h4>
+            <div className="text-xs font-bold text-neutral-900 dark:text-white tabular-nums mt-1">
               {formatCurrency(product.outletPrice)}
             </div>
 
             {/* Size choice */}
             <div className="mt-2 flex items-center gap-1.5 flex-wrap">
-              <span className="text-[10px] text-neutral-400">Beden:</span>
+              <span className="text-[10px] text-neutral-500 dark:text-neutral-400">Beden:</span>
               {product.sizes.map(size => (
                 <button
                   key={size}
                   onClick={() => onSizeChange(size)}
                   className={`px-1.5 py-0.5 text-[10px] font-semibold rounded border ${
                     selectedSize === size
-                      ? 'bg-amber-500 text-black border-amber-500'
-                      : 'bg-neutral-800 text-neutral-300 border-neutral-700'
+                      ? 'bg-amber-500 text-neutral-950 border-amber-500'
+                      : 'bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 border-neutral-200 dark:border-neutral-700'
                   }`}
                 >
                   {size}
@@ -453,10 +453,10 @@ const SlotCard: React.FC<SlotCardProps> = ({
       ) : (
         <button
           onClick={onSelect}
-          className="flex-1 border-2 border-dashed border-neutral-800 hover:border-amber-500/60 rounded-xl flex flex-col items-center justify-center p-4 text-neutral-500 hover:text-amber-400 transition-all group"
+          className="flex-1 border-2 border-dashed border-neutral-300 dark:border-neutral-800 hover:border-amber-500/60 rounded-xl flex flex-col items-center justify-center p-4 text-neutral-500 hover:text-amber-500 transition-all group"
         >
-          <div className="w-10 h-10 rounded-full bg-neutral-800 group-hover:bg-amber-500/20 flex items-center justify-center mb-2 transition-colors">
-            <Plus className="w-5 h-5 text-neutral-400 group-hover:text-amber-400" />
+          <div className="w-10 h-10 rounded-full bg-neutral-100 dark:bg-neutral-800 group-hover:bg-amber-500/20 flex items-center justify-center mb-2 transition-colors">
+            <Plus className="w-5 h-5 text-neutral-500 dark:text-neutral-400 group-hover:text-amber-500" />
           </div>
           <span className="text-xs font-semibold">Parça Ekle</span>
         </button>

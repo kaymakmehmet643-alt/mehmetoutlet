@@ -23,25 +23,25 @@ export const ProductGrid: React.FC<ProductGridProps> = ({
   return (
     <section id="catalog-section" className="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       {/* Grid Header */}
-      <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 mb-8 pb-4 border-b border-neutral-800">
+      <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 mb-8 pb-4 border-b border-neutral-200 dark:border-neutral-800">
         <div>
-          <h2 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
+          <h2 className="text-xl sm:text-2xl font-bold text-neutral-900 dark:text-white tracking-tight">
             {selectedCategoryName} Koleksiyonu
           </h2>
-          <span className="text-xs text-neutral-400 mt-1 block">
+          <span className="text-xs text-neutral-500 dark:text-neutral-400 mt-1 block">
             {products.length} outlet ürün listeleniyor · Orijinal garanti & kapıda ödeme
           </span>
         </div>
 
-        <div className="text-xs text-neutral-400 font-mono">
+        <div className="text-xs text-neutral-500 dark:text-neutral-400 font-mono">
           <span>Tüm Fiyatlar KDV Dahildir</span>
         </div>
       </div>
 
       {products.length === 0 ? (
-        <div className="py-20 text-center space-y-3 bg-neutral-900/40 rounded-2xl border border-neutral-800">
-          <Filter className="w-10 h-10 text-neutral-600 mx-auto" />
-          <h3 className="text-base font-bold text-neutral-300">Bu Kriterlere Uygun Ürün Bulunamadı</h3>
+        <div className="py-20 text-center space-y-3 bg-white dark:bg-neutral-900/40 rounded-2xl border border-neutral-200 dark:border-neutral-800">
+          <Filter className="w-10 h-10 text-neutral-400 dark:text-neutral-600 mx-auto" />
+          <h3 className="text-base font-bold text-neutral-800 dark:text-neutral-300">Bu Kriterlere Uygun Ürün Bulunamadı</h3>
           <p className="text-xs text-neutral-500 max-w-sm mx-auto">
             Lütfen sol menüden farklı bir kategori seçin veya arama filtrenizi temizleyin.
           </p>
@@ -54,12 +54,12 @@ export const ProductGrid: React.FC<ProductGridProps> = ({
             return (
               <div
                 key={product.id}
-                className="group flex flex-col bg-neutral-900 rounded-2xl border border-neutral-800 overflow-hidden hover:border-neutral-700 hover:shadow-xl transition-all duration-300"
+                className="group flex flex-col bg-white dark:bg-neutral-900 rounded-2xl border border-neutral-200 dark:border-neutral-800 overflow-hidden hover:border-neutral-400 dark:hover:border-neutral-700 hover:shadow-xl transition-all duration-300"
               >
                 {/* Product Image Frame */}
                 <div
                   onClick={() => onSelectProduct(product)}
-                  className="relative aspect-[4/5] bg-neutral-950 overflow-hidden cursor-pointer"
+                  className="relative aspect-[4/5] bg-neutral-100 dark:bg-neutral-950 overflow-hidden cursor-pointer"
                 >
                   <img
                     src={product.image}
@@ -81,7 +81,7 @@ export const ProductGrid: React.FC<ProductGridProps> = ({
                   </div>
 
                   <div className="absolute top-3 right-3 z-10">
-                    <span className="px-2 py-1 text-[10px] font-mono tracking-wider bg-black/70 backdrop-blur-md text-neutral-300 rounded-md border border-white/10">
+                    <span className="px-2 py-1 text-[10px] font-mono tracking-wider bg-black/70 backdrop-blur-md text-white rounded-md border border-white/10">
                       {product.brand}
                     </span>
                   </div>
@@ -116,29 +116,29 @@ export const ProductGrid: React.FC<ProductGridProps> = ({
                 {/* Info Container */}
                 <div className="p-5 flex-1 flex flex-col justify-between space-y-4">
                   <div>
-                    <div className="text-[11px] font-mono text-amber-400/90 uppercase tracking-wider mb-1">
+                    <div className="text-[11px] font-mono text-amber-600 dark:text-amber-400 font-semibold uppercase tracking-wider mb-1">
                       {product.brand}
                     </div>
 
                     <h3
                       onClick={() => onSelectProduct(product)}
-                      className="font-bold text-sm text-white hover:text-amber-400 cursor-pointer transition-colors line-clamp-1"
+                      className="font-bold text-sm text-neutral-900 dark:text-white hover:text-amber-500 dark:hover:text-amber-400 cursor-pointer transition-colors line-clamp-1"
                     >
                       {product.name}
                     </h3>
 
-                    <p className="text-xs text-neutral-400 mt-1 line-clamp-2">
+                    <p className="text-xs text-neutral-600 dark:text-neutral-400 mt-1 line-clamp-2">
                       {product.description}
                     </p>
 
-                    <div className="text-[11px] text-neutral-500 mt-2">
+                    <div className="text-[11px] text-neutral-500 dark:text-neutral-400 mt-2">
                       {product.fabric}
                     </div>
                   </div>
 
                   {/* Size Choices */}
                   <div>
-                    <span className="text-[10px] font-medium text-neutral-400 block mb-1">Beden Seç:</span>
+                    <span className="text-[10px] font-medium text-neutral-500 dark:text-neutral-400 block mb-1">Beden Seç:</span>
                     <div className="flex gap-1.5 flex-wrap">
                       {product.sizes.map(size => (
                         <button
@@ -147,7 +147,7 @@ export const ProductGrid: React.FC<ProductGridProps> = ({
                           className={`px-2 py-0.5 text-xs font-semibold rounded border transition-colors ${
                             currentSize === size
                               ? 'bg-amber-500 text-neutral-950 border-amber-500'
-                              : 'bg-neutral-800 text-neutral-300 border-neutral-700 hover:border-neutral-500'
+                              : 'bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 border-neutral-200 dark:border-neutral-700 hover:border-neutral-400'
                           }`}
                         >
                           {size}
@@ -157,12 +157,12 @@ export const ProductGrid: React.FC<ProductGridProps> = ({
                   </div>
 
                   {/* Pricing and Add Button */}
-                  <div className="pt-3 border-t border-neutral-800 flex items-center justify-between">
+                  <div className="pt-3 border-t border-neutral-200 dark:border-neutral-800 flex items-center justify-between">
                     <div>
-                      <div className="text-base font-extrabold text-white tabular-nums">
+                      <div className="text-base font-extrabold text-neutral-900 dark:text-white tabular-nums">
                         {formatCurrency(product.outletPrice)}
                       </div>
-                      <div className="text-xs text-neutral-500 line-through tabular-nums">
+                      <div className="text-xs text-neutral-400 dark:text-neutral-500 line-through tabular-nums">
                         {formatCurrency(product.originalPrice)}
                       </div>
                     </div>
